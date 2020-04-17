@@ -35,10 +35,10 @@ ReplaySettings::ReplaySettings() :
     player_id(1) {
 }
 
-const char* kMapBelShirVestigeLE = "Ladder/(2)Bel'ShirVestigeLE (Void).SC2Map";
-const char* kMapEmpty            = "Test/Empty.SC2Map";
-const char* kMapEmptyLong        = "Test/EmptyLong.SC2Map";
-const char* kMapEmptyTall        = "Test/EmptyTall.SC2Map";
-const char* kMapMarineMicro      = "Example/MarineMicro.SC2Map";
+const char* kMapBelShirVestigeLE = "C:/Program Files (x86)/Starcraft II/Maps/Ladder/(2)Bel'ShirVestigeLE (Void).SC2Map";
+const char* kMapEmpty            = "C:/Program Files (x86)/Starcraft II/Maps/LTest/Empty.SC2Map";
+const char* kMapEmptyLong        = "C:/Program Files (x86)/Starcraft II/Maps/LTest/EmptyLong.SC2Map";
+const char* kMapEmptyTall        = "C:/Program Files (x86)/Starcraft II/Maps/LTest/EmptyTall.SC2Map";
+const char* kMapMarineMicro      = "C:/Program Files (x86)/Starcraft II/Maps/LExample/MarineMicro.SC2Map";
 
 }
