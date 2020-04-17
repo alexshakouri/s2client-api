@@ -19,6 +19,6 @@ int main(int argc, char* argv[]) {
     });
 
     coordinator.LaunchStarcraft();
-    coordinator.StartGame(sc2::kMapBelShirVestigeLE);
+    coordinator.StartGame("C:/Program Files (x86)/Starcraft II/Maps/Ladder/(2)Bel'ShirVestigeLE (Void).SC2Map");//sc2::kMapBelShirVestigeLE);
     return 0;
 }
