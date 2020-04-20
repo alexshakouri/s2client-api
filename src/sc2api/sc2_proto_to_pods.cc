@@ -183,7 +183,7 @@ bool Convert(const ObservationRawPtr& observation_raw, UnitPool& unit_pool, uint
         unit->facing = observation_unit.facing();
         unit->radius = observation_unit.radius();
         unit->build_progress = observation_unit.build_progress();
-        if (observation_unit.has_cloak()) {
+        if (!observation_unit.has_cloak()) {
             if (!Convert(observation_unit.cloak(), unit->cloak)) {
                 return false;
             }

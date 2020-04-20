@@ -3,9 +3,23 @@
 
 class Bot : public sc2::Agent {
 public:
-	virtual void OnGameStart() final {
-	    std::cout << "Hello, WORLD!" << std::endl;
-	}
+	//virtual void OnGameStart() final {
+	//    std::cout << "Hello, WORLD!" << std::endl;
+	//}
+
+    virtual void OnStep() final{
+        //std::cout << "minerals: " << Observation()->GetMinerals()  << " | Vespene: " << Observation()->GetVespene() << std::endl;
+    }
+
+    virtual void OnUnitIdle(const sc2::Unit *unit) final{
+        if(unit->unit_type == sc2::UNIT_TYPEID::TERRAN_COMMANDCENTER){
+            Actions()->UnitCommand(unit, sc2::ABILITY_ID::TRAIN_SCV);
+            std::cout << "Build SCV" << std::endl;
+        }   
+
+    }
+
+    
 };
 
 int main(int argc, char* argv[]) {
@@ -20,5 +34,9 @@ int main(int argc, char* argv[]) {
 
     coordinator.LaunchStarcraft();
     coordinator.StartGame(sc2::kMapBelShirVestigeLE); 
+    
+    while(coordinator.Update()){
+    }   
+
     return 0;
 }
