@@ -12,19 +12,30 @@ public:
     }
 
     virtual void OnUnitIdle(const sc2::Unit *unit) final{
-        sc2::Point2D point;
         switch(unit->unit_type.ToType()){
             case sc2::UNIT_TYPEID::TERRAN_COMMANDCENTER:
                 Actions()->UnitCommand(unit, sc2::ABILITY_ID::TRAIN_SCV);
                 break;
             case sc2::UNIT_TYPEID::TERRAN_SCV:                
-                Actions()->UnitCommand(unit, sc2::ABILITY_ID::MOVE, point);
+                Actions()->UnitCommand(unit, sc2::ABILITY_ID::SMART, FindNearestMineral(unit->pos));
                 break;
             default:
                 break;
         }
     }
 
+private:
+    const sc2::Unit* FindNearestMineral(sc2::Point2D start){
+        const sc2::Unit* nearest;
+        sc2::Units total_neutral_units = Observation()->GetUnits(sc2::Unit::Alliance::Neutral);
+        for(auto neutral_unit : total_neutral_units){
+            if(neutral_unit->unit_type == sc2::UNIT_TYPEID::NEUTRAL_MINERALFIELD){
+                nearest = neutral_unit;
+            }
+        }
+
+        return nearest;    
+    }
     
 };
 
@@ -46,3 +57,5 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
+
