@@ -12,12 +12,14 @@ public:
     }
 
     virtual void OnUnitIdle(const sc2::Unit *unit) final{
+        sc2::Point2D point;
         switch(unit->unit_type.ToType()){
             case sc2::UNIT_TYPEID::TERRAN_COMMANDCENTER:
                 Actions()->UnitCommand(unit, sc2::ABILITY_ID::TRAIN_SCV);
                 break;
-            //case sc2::UNIT_TYPEID::TERRAN_SCV:
-            
+            case sc2::UNIT_TYPEID::TERRAN_SCV:                
+                Actions()->UnitCommand(unit, sc2::ABILITY_ID::MOVE, point);
+                break;
             default:
                 break;
         }
