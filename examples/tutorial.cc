@@ -1,5 +1,6 @@
 #include <sc2api/sc2_api.h>
 #include <iostream>
+#include "common/Astar_algorithm.h"
 
 class Bot : public sc2::Agent {
 public:
